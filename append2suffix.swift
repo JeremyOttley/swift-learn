@@ -14,4 +14,6 @@ func append2suffix(f: String) -> String {
   return newName
 }
 
-print(append2suffix(f: "image.jpeg"))
+if let input = readLine() {
+  print(append2suffix(f: input))
+}
