@@ -1,12 +1,12 @@
-func greater_than_zero(n: Int) -> Bool {
+func greaterThanZero(n: Int) -> Bool {
   return n > 0
 }
 
-func is_even(n: Int) -> Bool {
+func isEven(n: Int) -> Bool {
   return n % 2 == 0
 }
 
-func is_odd(n: Int) -> Bool {
+func isOdd(n: Int) -> Bool {
   return n % 2 != 0
 }     
 
