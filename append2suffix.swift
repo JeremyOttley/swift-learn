@@ -10,7 +10,7 @@ func append2suffix(f: String) -> String {
   // Get extension
   let ext = URL(fileURLWithPath: f).pathExtension
   
-  let newName = baseName + "2" + ext
+  let newName = baseName + "2" + "." + ext
   return newName
 }
 
