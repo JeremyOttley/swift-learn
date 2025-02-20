@@ -1,8 +1,6 @@
 func isVowel(_ char: Character) -> Bool {
     switch true {
-    case ["a", "e", "i", "o", "u"].contains(char):
-        return true
-    case ["A", "E", "I", "O", "U"].contains(char):
+    case ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"].contains(char):
         return true
     default:
         return false
