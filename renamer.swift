@@ -46,10 +46,19 @@ func generateRandomString(length: Int, characterSet: String = "abcdefghijklmnopq
     return randomString
 }
 
+func isImage(_ f: String) -> Bool {
+  let extensions: [String] = [".jpg", ".png", ".bmp", ".jpeg", ".jxl"]
+  switch true {
+      case extensions.filter { f.contains($0) }.count != 0:
+      return true
+    default:
+      return false
+  }
+}
 
 let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-let dir: [String] = listFilesInCurrentDirectory()
-for f in dir {
-  print("\(generateRandomString(length: 16, characterSet: validChars)).\(f.pathExtension)")
+let dir: [String] = listFilesInCurrentDirectory().filter { isImage($0) }
+for img in dir {
+  print("\(generateRandomString(length: 16, characterSet: validChars)).\(img.pathExtension)")
 }
