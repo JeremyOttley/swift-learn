@@ -18,3 +18,7 @@ enum Sign {
 }
 
 typealias Horoscope = (sign: Sign, fortune: Fortune)
+
+let horoscope: Horoscope = (sign: .Leo, fortune: "A new opportunity will arise today.")
+print(horoscope.sign) 
+print(horoscope.fortune)
