@@ -56,6 +56,25 @@ func isImage(_ f: String) -> Bool {
   }
 }
 
+// func isImage(_ img: String) -> Bool {
+//   switch img {
+//   case img where img.hasSuffix(".jpg"):
+//     true
+//   case img where img.hasSuffix(".bmp"):
+//     true
+//   case img where img.hasSuffix(".jpeg"):
+//     true
+//   case img where img.hasSuffix(".png"):
+//     true
+//   case img where img.hasSuffix(".webm"):
+//     true
+//   case img where img.hasSuffix(".jxl"):
+//     true
+//   default:
+//       false
+//   }
+// }
+
 let validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 let dir: [String] = listFilesInCurrentDirectory().filter { isImage($0) }
