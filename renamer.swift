@@ -47,31 +47,33 @@ func generateRandomString(length: Int, characterSet: String = "abcdefghijklmnopq
 }
 
 func isImage(_ f: String) -> Bool {
-  let extensions: [String] = [".jpg", ".png", ".bmp", ".jpeg", ".jxl"]
-  switch true {
-      case extensions.filter { f.contains($0) }.count != 0:
-      return true
-    default:
-      return false
+  switch f {
+  case f where f.hasSuffix(".jpg"):
+    true
+  case f where f.hasSuffix(".bmp"):
+    true
+  case f where f.hasSuffix(".jpeg"):
+    true
+  case f where f.hasSuffix(".png"):
+    true
+  case f where f.hasSuffix(".webm"):
+    true
+  case f where f.hasSuffix(".jxl"):
+    true
+  default:
+      false
   }
 }
 
-// func isImage(_ img: String) -> Bool {
-//   switch img {
-//   case img where img.hasSuffix(".jpg"):
-//     true
-//   case img where img.hasSuffix(".bmp"):
-//     true
-//   case img where img.hasSuffix(".jpeg"):
-//     true
-//   case img where img.hasSuffix(".png"):
-//     true
-//   case img where img.hasSuffix(".webm"):
-//     true
-//   case img where img.hasSuffix(".jxl"):
-//     true
-//   default:
-//       false
+// This version is slower but more maintanable
+// filter and contains both slow down the process
+//   let extensions: [String] = [".jpg", ".png", ".bmp", ".jpeg", "webm", ".jxl"]
+// func isImage(_ f: String) -> Bool {
+//   switch true {
+//       case extensions.filter { f.contains($0) }.count != 0:
+//       return true
+//     default:
+//       return false
 //   }
 // }
 
