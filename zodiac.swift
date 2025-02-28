@@ -2,7 +2,7 @@ import Foundation
 
 typealias Fortune = String
 
-enum Sign {
+enum Sign: String {
     case Aries
     case Taurus
     case Gemini
