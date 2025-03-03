@@ -1,6 +1,6 @@
 import Foundation 
 
-enum IsbnError {
+enum IsbnError: Error {
   case InvalidIsbn
   case InvalidCheckdigit
   case InvalidLength
