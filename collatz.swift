@@ -11,10 +11,14 @@ func isOdd(n: Int) -> Bool {
 }     
 
 func collatz(n: Int) -> Int {
+  guard greaterThanZero(n: n) else {
+    print("\(n) is not greater than zero")
+    return 0
+  }
   switch n {
-    case greaterThanZero(n: n) && isEven(n: n):
+    case n where isEven(n: n):
         return n / 2
-    case greaterThanZero(n: n) && isOdd(n: n):
+    case n where isOdd(n: n):
         return (n * 3) + 1
     default:
         return n
