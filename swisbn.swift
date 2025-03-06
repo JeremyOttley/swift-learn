@@ -7,6 +7,12 @@ enum IsbnError: Error {
   case RegistrantNotFound
 }
 
+struct Regions {
+  let `prefix`: String
+  let name: String
+  let ranges: [[String]]
+}
+
 func isValid(_ isbn: String) -> Bool {
   //turn into Guard?
   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
