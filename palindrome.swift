@@ -1,5 +1,5 @@
 func palindrome(word: String) -> Bool {
-  guard word != "" else {
+  guard !word.isEmpty else {
     print("Error, not a word")
     return false
   } 
