@@ -13,9 +13,27 @@ struct Regions {
   let ranges: [[String]]
 }
 
+// func isValid(_ isbn: String) -> Bool {
+//   //turn into Guard?
+//   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
+// }
+
 func isValid(_ isbn: String) -> Bool {
-  //turn into Guard?
-  isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
+  guard isLengthCorrect(isbn) else {
+    print("Length is not correct!")
+    return false
+  } 
+  
+  guard isCharsCorrect(isbn) else {
+    print("Characters are not correct!")
+    return false
+  } 
+  
+  guard isCheckDigitValid(isbn) else {
+    print("Check digit is invalid!")
+    return false
+  }
+  return true
 }
 
 // Correct?
