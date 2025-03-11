@@ -36,4 +36,14 @@ func isCheckDigitValid(_ isbn: String) -> Bool {
   // }
 }
 
-https://github.com/solar05/glisbn/blob/main/src/glisbn.gleam
+
+func getBody(isbn: String, prefix: String) -> String {
+  let isbnBody = String(isbn.reversed()
+    .dropFirst(1)
+    .reversed())
+  return isbnBody
+}
+//let x = getBody(isbn: "1478060659", prefix: "978")
+
+
+//https://github.com/solar05/glisbn/blob/main/src/glisbn.gleam
