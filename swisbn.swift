@@ -18,6 +18,10 @@ func isValid(_ isbn: String) -> Bool {
   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
 }
 
+func isCorrect(isbn: String) -> Bool {
+  return isValid(normalize(isbn))
+}
+
 func normalize(_ isbn: String) -> String {
   guard isbn.count > 16 else {
     print("Not a valid ISBN13")
