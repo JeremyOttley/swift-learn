@@ -18,6 +18,16 @@ func isValid(_ isbn: String) -> Bool {
   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
 }
 
+// Correct?
+func isHyphensCorrect(_ isbn: String) -> Bool {
+  switch isCorrect(isbn) {
+    case hyphenate(isbn): // if hyphenate(isbn) results in a success then
+      return true
+    default:
+      return false
+  }
+}
+
 func isLengthCorrect(_ isbn: String) -> Bool {
   let len: Int = isbn.count
   return len == 10 || len == 13 || len == 17
