@@ -18,6 +18,11 @@ func isValid(_ isbn: String) -> Bool {
   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
 }
 
+func isIsbn10(_ isbn: String) -> Bool {
+  let len: Int = normalize(isbn).count
+  return len == 10
+}
+
 func isCorrect(isbn: String) -> Bool {
   return isValid(normalize(isbn))
 }
