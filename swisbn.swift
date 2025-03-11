@@ -28,11 +28,11 @@ func isCorrect(isbn: String) -> Bool {
 }
 
 func normalize(_ isbn: String) -> String {
-  guard isbn.count > 16 else {
-    print("Not a valid ISBN13")
-    return ""
-  }
-	return isbn.filter { $0 != "-" }
+  return String(Array(isbn).filter { $0.isNumber || $0 == "X" })
+}
+
+func isCharsCorrect(_ isbn: String) -> Bool {
+  return isLengthCorrect(normalize(isbn))
 }
 
 func isCheckDigitValid(_ isbn: String) -> Bool {
