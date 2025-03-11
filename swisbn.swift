@@ -13,6 +13,9 @@ struct Regions {
   let ranges: [[String]]
 }
 
+let isbn13 = "978-1-4870-8329-7"
+let isbn10 = "0-306-40615-2"
+
 // func isValid(_ isbn: String) -> Bool {
 //   //turn into Guard?
 //   isLengthCorrect(isbn) && isCharsCorrect(isbn) && isCheckDigitValid(isbn)
