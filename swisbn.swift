@@ -27,8 +27,12 @@ func isCorrect(isbn: String) -> Bool {
   return isValid(normalize(isbn))
 }
 
+func isDigit(_ ch: Character) -> Bool {
+  return ch.isNumber
+}
+
 func normalize(_ isbn: String) -> String {
-  return String(Array(isbn).filter { $0.isNumber || $0 == "X" })
+  return String(Array(isbn).filter { isDigit($0) || $0 == "X" })
 }
 
 func isCharsCorrect(_ isbn: String) -> Bool {
