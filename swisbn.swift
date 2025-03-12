@@ -114,4 +114,34 @@ func getBody(isbn: String, prefix: String) -> String {
 //let x = getBody(isbn: "1478060659", prefix: "978")
 
 
+func isbn10CheckDigit(_ isbn: String) -> (String, IsbnError) {
+  let normalizedIsbn: String = normalize(isbn)
+  let len: Int = normalizedIsbn.count
+
+    guard len < 8 else {
+    print("Isbn too short to be an ISBN10")
+    return ("", .InvalidIsbn)
+  }
+
+  guard len > 13 else {
+    print("Isbn too long to be an ISBN13")
+    return ("", .InvalidIsbn)
+  }
+
+  let nsum = normalizedIsbn[normalizedIsbn.startIndex...normalizedIsbn.index(normalizedIsbn.startIndex, offsetBy: 9)].split(separator: "").map { Int($0) ?? 0 }.enumerated().map { (10 - $1) * $0 }.reduce(0) { $0 + $1 }
+
+
+  let firstPart = nsum % 11
+  let finalPart = (11 - firstPart) % 11
+
+  switch finalPart {
+    case 10:
+      return "X"
+    default:
+      return String(finalPart)
+  }
+
+}
+
+
 //https://github.com/solar05/glisbn/blob/main/src/glisbn.gleam
