@@ -128,8 +128,11 @@ func isbn10CheckDigit(_ isbn: String) -> (String, IsbnError) {
     return ("", .InvalidIsbn)
   }
 
-  let nsum = normalizedIsbn[normalizedIsbn.startIndex...normalizedIsbn.index(normalizedIsbn.startIndex, offsetBy: 9)].split(separator: "").map { Int($0) ?? 0 }.enumerated().map { (10 - $1) * $0 }.reduce(0) { $0 + $1 }
-
+    let nsum = isbn[isbn.startIndex...isbn.index(isbn.startIndex, offsetBy: 9)]
+      .split(separator: "") // split on ""
+      .map { Int($0) ?? 0 } // map over chars to be Int or default 0
+      .enumerated().map { (10 - $1) * $0 } // enumerated adds indices ($0 is index)
+      .reduce(0) { $0 + $1 } // reduce by addition
 
   let firstPart = nsum % 11
   let finalPart = (11 - firstPart) % 11
