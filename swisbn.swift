@@ -76,22 +76,33 @@ func isCharsCorrect(_ isbn: String) -> Bool {
 }
 
 func isCheckDigitValid(_ isbn: String) -> Bool {
+  
   let normalizedIsbn = normalize(isbn)
-  let len = normalizedIsbn.count
-  guard let len > 8 || len < 13 else {
+  let len: Int = normalizedIsbn.count
+
+  guard len < 8 else {
+    print("Isbn too short to be an ISBN10")
     return false
   }
-  switch isbn {
-    case len == 10:
-      isbn10CheckDigit(normalizedIsbn)
-    default:
-      isbn13CheckDigit(normalizedIsbn)
+
+  guard len > 13 else {
+    print("Isbn too long to be an ISBN13")
+    return false
   }
 
-  // if let lastDigit = normalizedIsbn.last {
-  //   digit == lastDigit
-  // }
+  let digit = switch len {
+    case 10:
+      return isbn10CheckDigit(normalizedIsbn)
+    default:
+      return isbn13CheckDigit(normalizedIsbn)
+  }
+  
+  let lastDigit = normalizedIsbn.last
+
+  return digit == lastDigit
+
 }
+
 
 
 func getBody(isbn: String, prefix: String) -> String {
