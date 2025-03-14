@@ -80,13 +80,8 @@ func isCheckDigitValid(_ isbn: String) -> Bool {
   let normalizedIsbn = normalize(isbn)
   let len: Int = normalizedIsbn.count
 
-  guard len < 8 else {
-    print("Isbn too short to be an ISBN10")
-    return false
-  }
-
-  guard len > 13 else {
-    print("Isbn too long to be an ISBN13")
+  guard len < 9 || len > 13 else {
+    print("Error: Not a valid ISBN")
     return false
   }
 
