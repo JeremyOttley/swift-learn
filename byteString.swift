@@ -33,3 +33,18 @@ let messageByteLength = x.count
 
 print("Your message is \(messages[0].count) characters long")
 print("Your message is \(messageByteLength) bytes in length")
+
+//SMS system uses a message limit of 160 bytes
+func isValid(sms: String) -> Bool {
+  guard byteCount(of: sms) <= 160 else {
+    print("Error: SMS message has surpassed byte limit and will not send")
+    return false
+  }
+  return true
+}
+
+let a = messages.map { isValid(sms: $0) }
+print(a)
+
+//character limit of 140 characters
+//func isValid(tweet: String) -> {}
