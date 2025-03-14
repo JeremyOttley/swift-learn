@@ -49,6 +49,8 @@ func isTweetValid(_ tweet: String) -> Bool {
 
 func isValid(_ s: String) -> Double {
   switch true {
+    case !isSMSValid(s) && !isTweetValid(s):
+      return 0.0
     case isSMSValid(s):
       return 0.11
     case isTweetValid(s):
