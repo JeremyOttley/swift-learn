@@ -47,4 +47,13 @@ let a = messages.map { isValid(sms: $0) }
 print(a)
 
 //character limit of 140 characters
-//func isValid(tweet: String) -> {}
+func isTweetValid(tweet: String) -> Bool {
+  guard tweet.count <= 143 else {
+    print("Error: Tweet message has surpassed character limit and will not send")
+    return false
+  }
+  return true
+}
+
+let b = messages.map { isTweetValid(tweet: $0) }
+print(b)
