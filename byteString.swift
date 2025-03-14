@@ -41,7 +41,7 @@ func isSMSValid(_ sms: String) -> Bool {
 
 //character limit of 140 characters
 func isTweetValid(_ tweet: String) -> Bool {
-  guard tweet.count <= 143 else {
+  guard tweet.count <= 140 else {
     return false
   }
   return true
