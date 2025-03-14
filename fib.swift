@@ -1,4 +1,4 @@
-func fibonacci(_ n: Int) -> Int {
+func fibonacci(_ n: UInt8) -> UInt8 {
  guard n > 1 else {
   return n
  }
