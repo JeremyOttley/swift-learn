@@ -12,9 +12,10 @@
 
 //messages[0] answer should be "162 bytes long and 143 characters long"
 
-import Foundation
 
 let messages = ["néztek bele az „ártatlan lapocskába“, mint ahogy belenézetlen mondták ki rá a halálos itéletet a sajtó csupa 20–30 éves birái s egyben hóhérai.", "livres, et la Columbiad Rodman ne dépense que cent soixante livres de poudre pour envoyer à six milles son boulet d'une demi-tonne.  Ces", "Люди должны были тамъ и сямъ жить въ палаткахъ, да и мы не были помѣщены въ посольскомъ дворѣ, который также сгорѣлъ, а въ двухъ деревянныхъ", "Han hade icke träffat Märta sedan Arvidsons middag, och det hade gått nära en vecka sedan dess. Han hade dagligen promenerat på de gator, där"]
+
+import Foundation
 
 func stringToBytes(from s: String) -> Array<UInt8> {
   return Array(s.data(using: .utf8)!) 
@@ -26,33 +27,40 @@ func bytesToString(from b: Array<UInt8>) {
   }
 }
 
-let x = stringToBytes(from: messages[0])
-let messageByteLength = x.count
-
-
-print("Your message is \(messages[0].count) characters long")
-print("Your message is \(messageByteLength) bytes in length")
+func byteCount(of b: String) -> Int {
+  return stringToBytes(from: b).count
+}
 
 //SMS system uses a message limit of 160 bytes
-func isValid(sms: String) -> Bool {
+func isSMSValid(_ sms: String) -> Bool {
   guard byteCount(of: sms) <= 160 else {
-    print("Error: SMS message has surpassed byte limit and will not send")
     return false
   }
   return true
 }
-
-let a = messages.map { isValid(sms: $0) }
-print(a)
 
 //character limit of 140 characters
-func isTweetValid(tweet: String) -> Bool {
+func isTweetValid(_ tweet: String) -> Bool {
   guard tweet.count <= 143 else {
-    print("Error: Tweet message has surpassed character limit and will not send")
     return false
   }
   return true
 }
 
-let b = messages.map { isTweetValid(tweet: $0) }
-print(b)
+func isValid(_ s: String) -> Double {
+  switch true {
+    case isSMSValid(s):
+      return 0.11
+    case isTweetValid(s):
+      return 0.07
+    default:
+      return 0.13
+  }
+}
+
+func totalMessagePrice(_ messages: Array<String>) -> Double {
+  return messages.map { isValid($0) }.reduce(0) { $0 + $1 }
+}
+
+let d = totalMessagePrice(messages)
+print(d)
