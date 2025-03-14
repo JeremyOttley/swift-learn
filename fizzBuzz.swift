@@ -1,6 +1,6 @@
 import Foundation
 
-func fizzBuzz(_ n: Int) {
+func fizzBuzz(_ n: UInt8) {
 	switch n {
 		case n where n.isMultiple(of: 3):
 			print("Fizz")
