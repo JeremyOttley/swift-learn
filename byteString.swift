@@ -65,4 +65,4 @@ func totalMessagePrice(_ messages: Array<String>) -> Double {
 }
 
 let d = totalMessagePrice(messages)
-print(d)
+print("Your message will cost $\(d) cents")
