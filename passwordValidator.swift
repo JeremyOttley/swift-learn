@@ -2,6 +2,8 @@ import Foundation
 
 //https://i18n-puzzles.com/puzzle/3/
 
+let passes = ["d9Ō", "uwI.E9GvrnWļbzO", "ž-2á", "Ģ952W*F4", "?O6JQf", "xi~Rťfsa", "r_j4XcHŔB", "71äĜ3"]
+
 func checkASCII(_ string: String) -> Bool {
     return string.utf8.reduce(true) { $0 && ($1 <= 127) }
 }
@@ -10,8 +12,8 @@ func hasNonASCII(_ s: String) -> Bool {
   return s.unicodeScalars.contains { $0.value > 127 }
 }
 
-func hasLetters(in s: String) -> Bool {
-  return s.rangeOfCharacter(from: .letters) != nil
+func hasLowers(in s: String) -> Bool {
+  return s.rangeOfCharacter(from: .lowercaseLetters) != nil
 }
 
 func hasDigits(in s: String) -> Bool {
@@ -37,7 +39,7 @@ func isPassValid(_ p: String) -> Bool {
     print("Must have at least one uppercased letter")
     return false
   }
-  guard hasLetters(in: p) else {
+  guard hasLowers(in: p) else {
     print("Must have at least one letter")
     return false
   }
@@ -49,5 +51,7 @@ func isPassValid(_ p: String) -> Bool {
   return true
 }
 
-let z = isPassValid("nut9ù8nvfjD")
-print(z)
+for n in passes {
+  let valid = isPassValid(n)
+  print("\(n): \(valid)")
+}
