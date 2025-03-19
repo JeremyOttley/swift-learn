@@ -55,3 +55,8 @@ for n in passes {
   let valid = isPassValid(n)
   print("\(n): \(valid)")
 }
+
+// // More functional, but slightly less performant:
+// passes.forEach { password in
+//     print("\(password): \(isPassValid(password))")
+// }
