@@ -4,3 +4,5 @@ let regex = /name: \w+/
 if let match = user.firstMatch(of: regex) {
     print(match.output)
 }
+
+//https://bignerdranch.com/blog/swift-regex/
