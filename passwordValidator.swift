@@ -52,8 +52,7 @@ func isPassValid(_ p: String) -> Bool {
 }
 
 for n in passes {
-  let valid = isPassValid(n)
-  print("\(n): \(valid)")
+  print("\(n): \(isPassValid(n))")
 }
 
 // // More functional, but slightly less performant:
