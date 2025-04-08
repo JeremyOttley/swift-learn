@@ -7,10 +7,10 @@ func isVowel(_ char: Character) -> Bool {
   }
 }
 
-func toPigLatin(_ word: String) -> String {
+func toPigLatin(_ word: String) -> String? {
 
     guard case let (first?, rest) = (word.first, word.dropFirst())
-      else { return "" }
+      else { return nil }
 
   if isVowel(first) {
     return word + "yay"
@@ -19,4 +19,4 @@ func toPigLatin(_ word: String) -> String {
   }
 }
 
-print(toPigLatin("Jeremy"))
+print(toPigLatin("Jeremy") ?? "")
