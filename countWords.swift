@@ -1,11 +1,10 @@
 import Foundation
 
-func countWords(in str: String) -> Int {
-  return str.components(separatedBy: " ")
-    .filter { !$0.isEmpty }
-    .count
+let input = "Hello, my name is Jeremy Mark Ottley. I am the digital content manager at Duke University Press (DUP)"
+
+func countWords(in s: String) -> Int {
+  return s.components(separatedBy: [",", ".", " ",]).count
 }
 
-let x = countWords(in: "Jeremy was here")
-
-print(y) // 3
+let x = countWords(in: input)
+print(x) // 20
