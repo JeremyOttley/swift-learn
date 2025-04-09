@@ -10,4 +10,4 @@ func flattenStr(_ s: String) -> Array<String> {
 }
 
 let x = flattenStr(input[0])
-print(x)
+print(x.sorted { $0.localizedStandardCompare($1) == .orderedAscending })
