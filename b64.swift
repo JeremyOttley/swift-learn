@@ -17,5 +17,5 @@ func bDecode(_ s: String) -> String? {
 }
 
 if let x = bEncode(input) {
-  print(bDecode(x) ?? "") // ?? is like unwrap_or_default
+  print("\(x) decoded is: \(bDecode(x) ?? "")") // ?? is like unwrap_or_default
 }
