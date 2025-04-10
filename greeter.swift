@@ -1,4 +1,4 @@
-import Foudnation
+import Foundation
 
 print("Please enter your name: ")
 
