@@ -1,5 +1,5 @@
-func charToString(_ chars: [Character]) -> String {
+func charToString(from chars: [Character]) -> String {
   return String(chars)
 }
 
-print(charToString(["J", "e", "r", "e", "m", "y"]))
+print(charToString(from: ["J", "e", "r", "e", "m", "y"]))
