@@ -7,9 +7,13 @@ func isVowel(_ char: Character) -> Bool {
   }
 }
 
-func countVowels(_ word: String) -> Int {
+func countVowels(in word: String) -> Int? {
+  guard !word.isEmpty else {
+    print("Empty string is not allowed")
+    return nil
+  }
   return word.filter { isVowel($0) }.count
 }
 
-let name = "Jeremy"
-print(countVowels(name))
+let x = countVowels(in: "Jeremy") ?? 0
+print(x)
