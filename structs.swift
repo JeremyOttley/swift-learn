@@ -7,7 +7,7 @@ struct Coordinates {
   }
 }
 
-var baltimore = Coordinates(longitude: 39.9, latitude: 76.6)
+var baltimore = Coordinates(longitude: -76.69699827245626, latitude: 39.306308027126164)
 
 print("Lat: \(baltimore.latitude) and Long: \(baltimore.longitude)")
 print(baltimore.geolocation())
