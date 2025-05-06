@@ -19,13 +19,12 @@ func pigLatin(_ s: String) -> String {
     return s.dropFirst(1) + String(c) + "ay" 
   }
   
-//  if
 
   return s + "yay"
 
 }
 
-let x = pigLatin("Jeremy")
-let y = pigLatin("Aaron")
+let x = pigLatin("Eric")
+let y = pigLatin("Gillian")
 print(x)
 print(y)
